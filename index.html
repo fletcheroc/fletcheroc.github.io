@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>avbObO官网-avbObO官方网站入口与产品服务指南</title>
+    <meta name="description" content="avbObO官网是了解avbObO品牌、产品与服务的核心平台。这里提供avbObO最新动态、产品介绍、使用指南及官方联系方式，帮助您快速获取准确信息。">
+    <meta name="keywords" content="avbObO官网,avbObO官方网站,avbObO入口,avbObO产品,avbObO服务">
+    <style>
+        /* ===== 全局重置与基础 ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        ul, ol {
+            list-style: none;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== 页眉与导航 ===== */
+        .site-header {
+            background: #ffffff;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+        }
+        .brand a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: #0f172a;
+        }
+        .brand .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 900;
+            font-size: 1.2rem;
+        }
+        .main-nav ul {
+            display: flex;
+            gap: 32px;
+        }
+        .main-nav a {
+            font-weight: 500;
+            color: #334155;
+            padding: 8px 0;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+        }
+        .main-nav a:hover,
+        .main-nav a.active {
+            color: #2563eb;
+            border-bottom-color: #2563eb;
+        }
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .btn-outline {
+            border: 1.5px solid #cbd5e1;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+            color: #334155;
+        }
+        .btn-outline:hover {
+            border-color: #2563eb;
+            color: #2563eb;
+        }
+        .btn-primary {
+            background: #2563eb;
+            color: #ffffff;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+        .btn-primary:hover {
+            background: #1d4ed8;
+        }
+
+        /* 移动端导航 */
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+        .nav-toggle span {
+            width: 26px;
+            height: 3px;
+            background: #1e293b;
+            border-radius: 3px;
+        }
+        .mobile-nav {
+            display: none;
+            background: #ffffff;
+            border-top: 1px solid #e2e8f0;
+            padding: 10px 20px;
+        }
+        .mobile-nav ul {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .mobile-nav a {
+            display: block;
+            padding: 12px 0;
+            border-bottom: 1px solid #f1f5f9;
+            font-weight: 500;
+        }
+        .mobile-nav a:last-child {
+            border-bottom: none;
+        }
+
+        /* ===== Hero 首屏 ===== */
+        .hero {
+            background: linear-gradient(145deg, #0f172a 0%, #1e3a8a 100%);
+            color: #ffffff;
+            padding: 80px 0 70px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -60%;
+            right: -20%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(99,102,241,0.3) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .hero .container {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        .hero-copy h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+            margin-bottom: 18px;
+        }
+        .hero-copy p {
+            font-size: 1.15rem;
+            opacity: 0.85;
+            margin-bottom: 32px;
+            max-width: 600px;
+        }
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .hero .btn-hero {
+            padding: 12px 32px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+        .btn-hero-primary {
+            background: #ffffff;
+            color: #1e3a8a;
+        }
+        .btn-hero-primary:hover {
+            background: #e2e8f0;
+        }
+        .btn-hero-ghost {
+            border: 2px solid rgba(255,255,255,0.5);
+            color: #ffffff;
+        }
+        .btn-hero-ghost:hover {
+            border-color: #ffffff;
+            background: rgba(255,255,255,0.1);
+        }
+        .hero-visual {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(4px);
+            border-radius: 20px;
+            padding: 32px;
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+        .hero-visual h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .fake-terminal {
+            background: #0b1120;
+            border-radius: 12px;
+            padding: 20px;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 0.85rem;
+            color: #a5f3fc;
+            line-height: 1.7;
+            border: 1px solid #1e293b;
+        }
+        .fake-terminal .cmd {
+            color: #fbbf24;
+        }
+        .fake-terminal .path {
+            color: #6ee7b7;
+        }
+
+        /* ===== 通知条 ===== */
+        .notice-bar {
+            background: #eff6ff;
+            border-bottom: 1px solid #bfdbfe;
+            padding: 12px 0;
+            font-size: 0.95rem;
+        }
+        .notice-bar .container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .notice-bar .badge {
+            background: #2563eb;
+            color: #fff;
+            border-radius: 4px;
+            padding: 2px 10px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ===== 通用区块 ===== */
+        .section {
+            padding: 70px 0;
+        }
+        .section-alt {
+            background: #ffffff;
+        }
+        .section-head {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+        .section-head h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            margin-bottom: 12px;
+        }
+        .section-head p {
+            color: #64748b;
+            font-size: 1.05rem;
+        }
+
+        /* ===== 产品亮点 ===== */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .feature-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 30px 24px;
+            transition: box-shadow 0.25s, transform 0.25s;
+        }
+        .feature-card:hover {
+            box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+            transform: translateY(-3px);
+        }
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: #eaf2ff;
+            color: #2563eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .feature-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .feature-card p {
+            color: #475569;
+            font-size: 0.95rem;
+        }
+
+        /* ===== 工作流程 / 使用场景 ===== */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+        .step-item {
+            text-align: center;
+            padding: 20px 10px;
+        }
+        .step-number {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2563eb;
+            margin: 0 auto 16px;
+            border: 2px solid #e2e8f0;
+        }
+        .step-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        .step-item p {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        /* ===== 功能详情 ===== */
+        .detail-flex {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .detail-text h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        .detail-text p {
+            color: #475569;
+            margin-bottom: 16px;
+        }
+        .detail-list {
+            margin-top: 10px;
+        }
+        .detail-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 10px;
+            color: #334155;
+        }
+        .detail-list li::before {
+            content: '✓';
+            color: #2563eb;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        .detail-visual {
+            background: #f1f5f9;
+            border-radius: 20px;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 300px;
+            border: 1px solid #e2e8f0;
+        }
+        .placeholder-visual {
+            text-align: center;
+            color: #94a3b8;
+        }
+        .placeholder-visual .big {
+            font-size: 4rem;
+            margin-bottom: 10px;
+        }
+
+        /* ===== 使用指南 ===== */
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+        .guide-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 28px;
+        }
+        .guide-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .guide-card h3 .tag {
+            font-size: 0.75rem;
+            background: #e0e7ff;
+            color: #4338ca;
+            padding: 2px 8px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+        .guide-card ol {
+            list-style: decimal;
+            padding-left: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            color: #475569;
+            font-size: 0.95rem;
+        }
+
+        /* ===== 最新动态 ===== */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .news-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 24px;
+            transition: box-shadow 0.2s;
+        }
+        .news-card:hover {
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        }
+        .news-card .date {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .news-card h3 {
+            font-size: 1.1rem;
+            margin: 10px 0 8px;
+            font-weight: 600;
+        }
+        .news-card p {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        /* ===== FAQ ===== */
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+        .faq-question {
+            padding: 20px 24px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #1e293b;
+            transition: background 0.2s;
+        }
+        .faq-question:hover {
+            background: #f8fafc;
+        }
+        .faq-question .arrow {
+            font-size: 1.2rem;
+            transition: transform 0.2s;
+            flex-shrink: 0;
+        }
+        .faq-item.active .arrow {
+            transform: rotate(45deg);
+        }
+        .faq-answer {
+            padding: 0 24px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            color: #475569;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        .faq-item.active .faq-answer {
+            padding: 0 24px 20px;
+            max-height: 500px;
+        }
+
+        /* ===== CTA ===== */
+        .cta-section {
+            background: #0f172a;
+            color: #fff;
+            padding: 60px 0;
+            text-align: center;
+        }
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        .cta-section p {
+            opacity: 0.8;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        /* ===== 页脚 ===== */
+        .site-footer {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 50px 0 30px;
+            border-top: 1px solid #1e293b;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .footer-brand h3 {
+            color: #ffffff;
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+        }
+        .footer-brand p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        .footer-col h4 {
+            color: #ffffff;
+            font-size: 1rem;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+        .footer-col ul li {
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+        .footer-col ul li a:hover {
+            color: #ffffff;
+        }
+        .footer-bottom {
+            border-top: 1px solid #1e293b;
+            padding-top: 24px;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        /* ===== 响应式 ===== */
+        @media (max-width: 992px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .steps-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .news-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .hero .container {
+                grid-template-columns: 1fr;
+            }
+            .hero-visual {
+                display: none;
+            }
+        }
+        @media (max-width: 768px) {
+            .main-nav {
+                display: none;
+            }
+            .nav-toggle {
+                display: flex;
+            }
+            .header-actions .btn-outline,
+            .header-actions .btn-primary {
+                display: none;
+            }
+            .mobile-nav.open {
+                display: block;
+            }
+            .hero-copy h1 {
+                font-size: 2rem;
+            }
+            .detail-flex {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .guide-grid {
+                grid-template-columns: 1fr;
+            }
+            .features-grid,
+            .steps-grid,
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .section {
+                padding: 50px 0;
+            }
+            .section-head h2 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+    <!-- 页眉 -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <a href="#"><span class="logo-icon">av</span> avbObO</a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#home" class="active">首页</a></li>
+                    <li><a href="#features">产品亮点</a></li>
+                    <li><a href="#guide">使用指南</a></li>
+                    <li><a href="#news">最新动态</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="#contact" class="btn-outline">联系我们</a>
+                <a href="#guide" class="btn-primary">快速开始</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="菜单">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <!-- 移动端导航 -->
+        <div class="mobile-nav" id="mobileNav">
+            <ul>
+                <li><a href="#home">首页</a></li>
+                <li><a href="#features">产品亮点</a></li>
+                <li><a href="#guide">使用指南</a></li>
+                <li><a href="#news">最新动态</a></li>
+                <li><a href="#faq">常见问题</a></li>
+                <li><a href="#contact">联系我们</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- 通知条 -->
+    <div class="notice-bar">
+        <div class="container">
+            <span class="badge">官方</span>
+            <span>avbObO官网现已全新改版，欢迎访问并获取最新产品信息与服务。</span>
+        </div>
+    </div>
+
+    <!-- Hero 首屏 -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-copy">
+                <h1>欢迎访问 avbObO 官方网站</h1>
+                <p>avbObO 致力于为个人与企业用户提供高效、可靠、创新的数字化解决方案。从产品体验到技术支持，我们始终以用户需求为核心。本官网是您了解 avbObO 品牌、产品动态与服务的首要渠道。</p>
+                <div class="hero-actions">
+                    <a href="#features" class="btn-hero btn-hero-primary">探索产品</a>
+                    <a href="#guide" class="btn-hero btn-hero-ghost">查看使用指南</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <h3>avbObO 快速概览</h3>
+                <div class="fake-terminal">
+                    <span class="path">~</span> <span class="cmd">$</span> avbobo --version<br>
+                    avbObO v2.4.1 (官方稳定版)<br>
+                    <span class="path">~</span> <span class="cmd">$</span> avbobo status<br>
+                    ✓ 核心服务运行正常<br>
+                    ✓ 最新更新已部署<br>
+                    ✓ 安全防护已启用<br>
+                    <span class="path">~</span> <span class="cmd">$</span> avbobo guide<br>
+                    查看快速上手指南 → <a href="#guide" style="color:#7dd3fc;">点击这里</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 产品亮点 -->
+    <section class="section" id="features">
+        <div class="container">
+            <div class="section-head">
+                <h2>为什么选择 avbObO？</h2>
+                <p>我们专注于打造简单易用、稳定安全的工具与服务，帮助您更高效地完成工作与创作。</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>高效性能</h3>
+                    <p>优化核心算法与交互流程，让每一次操作都快速响应，显著提升您的使用效率。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>安全可靠</h3>
+                    <p>采用多重数据保护机制与安全策略，确保您的信息与数据始终处于严密防护之下。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧩</div>
+                    <h3>灵活扩展</h3>
+                    <p>支持多种个性化配置与第三方集成，能够灵活适应不同场景和业务需求的变化。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>数据洞察</h3>
+                    <p>内置可视化数据分析工具，帮助您快速理解使用情况，做出更明智的决策。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3>专业支持</h3>
+                    <p>经验丰富的技术支持团队随时为您解答疑问，提供及时、专业的帮助与指导。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3>多端同步</h3>
+                    <p>支持桌面、移动与云端同步，让您在不同设备间无缝切换，保持工作连续性。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 使用场景/流程 -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-head">
+                <h2>如何开始使用 avbObO？</h2>
+                <p>无论您是首次接触还是经验丰富的老用户，都可以通过以下步骤快速上手。</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <h3>访问官网</h3>
+                    <p>通过 avbObO 官网了解产品详情、功能更新与官方公告。</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <h3>注册账号</h3>
+                    <p>创建您的个人或企业账号，解锁完整功能与专属服务。</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <h3>配置环境</h3>
+                    <p>根据指引完成基础设置，将 avbObO 接入您的工作流。</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">4</div>
+                    <h3>开始使用</h3>
+                    <p>浏览操作指南或联系支持团队，享受高效体验。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 功能详情 -->
+    <section class="section">
+        <div class="container">
+            <div class="detail-flex">
+                <div class="detail-text">
+                    <h3>全功能平台，满足多元需求</h3>
+                    <p>avbObO 不仅仅是一个简单的工具，它集成了项目管理、团队协作、数据分析与自动化流程等多项核心能力，旨在为企业与个人提供一个统一、高效的工作环境。</p>
+                    <ul class="detail-list">
+                        <li>直观简洁的仪表盘，重要信息一目了然</li>
+                        <li>灵活的权限管理，保障团队协作安全</li>
+                        <li>自动化规则触发，减少重复性手动操作</li>
+                        <li>详细的操作日志与审计追踪，全程透明</li>
+                        <li>开放 API 接口，无缝对接现有系统</li>
+                    </ul>
+                </div>
+                <div class="detail-visual">
+                    <div class="placeholder-visual">
+                        <div class="big">📦</div>
+                        <p>avbObO 核心模块展示</p>
+                        <p style="font-size:0.85rem; margin-top:8px;">（界面示意区域）</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 使用指南 -->
+    <section class="section section-alt" id="guide">
+        <div class="container">
+            <div class="section-head">
+                <h2>avbObO 使用指南</h2>
+                <p>以下是一些常见的使用方法，帮助您更好地发挥 avbObO 的价值。</p>
+            </div>
+            <div class="guide-grid">
+                <div class="guide-card">
+                    <h3>📘 新手上路 <span class="tag">基础</span></h3>
+                    <ol>
+                        <li>完成账号注册与邮箱验证。</li>
+                        <li>在「设置」中完善个人资料与偏好。</li>
+                        <li>浏览「帮助中心」或查看内置教程。</li>
+                        <li>创建第一个项目或任务，体验核心流程。</li>
+                    </ol>
+                </div>
+                <div class="guide-card">
+                    <h3>📗 进阶技巧 <span class="tag">效率</span></h3>
+                    <ol>
+                        <li>利用快捷键操作，减少鼠标依赖。</li>
+                        <li>设置自动化规则，让系统替您处理常规事务。</li>
+                        <li>使用数据看板追踪关键指标变化。</li>
+                        <li>探索应用市场，连接更多第三方工具。</li>
+                    </ol>
+                </div>
+                <div class="guide-card">
+                    <h3>📙 团队协作 <span class="tag">管理</span></h3>
+                    <ol>
+                        <li>创建团队并邀请成员加入。</li>
+                        <li>为不同成员分配角色与权限。</li>
+                        <li>使用共享日历和公告栏同步信息。</li>
+                        <li>定期查看协作报告，优化团队流程。</li>
+                    </ol>
+                </div>
+                <div class="guide-card">
+                    <h3>📕 安全与维护 <span class="tag">保障</span></h3>
+                    <ol>
+                        <li>开启两步验证，增强账户安全性。</li>
+                        <li>定期检查登录设备与活跃会话。</li>
+                        <li>及时更新版本以获取最新修复。</li>
+                        <li>如遇异常，第一时间联系官方支持。</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 最新动态 -->
+    <section class="section" id="news">
+        <div class="container">
+            <div class="section-head">
+                <h2>最新动态</h2>
+                <p>了解 avbObO 产品更新、公告与行业资讯。</p>
+            </div>
+            <div class="news-grid">
+                <div class="news-card">
+                    <span class="date">2025-06-18</span>
+                    <h3>avbObO v2.5 版本计划公布</h3>
+                    <p>新版本将重点优化数据可视化模块，并引入更智能的自动化建议功能，敬请期待。</p>
+                </div>
+                <div class="news-card">
+                    <span class="date">2025-05-30</span>
+                    <h3>安全升级：全面支持硬件密钥</h3>
+                    <p>为满足更高安全需求，avbObO 现已支持 FIDO2 硬件密钥作为两步验证方式。</p>
+                </div>
+                <div class="news-card">
+                    <span class="date">2025-05-12</span>
+                    <h3>客户成功案例分享</h3>
+                    <p>某中型科技团队通过 avbObO 将项目交付周期缩短约 20%，阅读他们的实践故事。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section-alt" id="faq">
+        <div class="container">
+            <div class="section-head">
+                <h2>常见问题</h2>
+                <p>这里汇集了用户最常询问的问题。如果仍未解决，欢迎联系我们。</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item active">
+                    <div class="faq-question">avbObO 是免费使用的吗？<span class="arrow">+</span></div>
+                    <div class="faq-answer">avbObO 提供免费的基础版本，包含核心功能。对于需要更多高级特性、更大存储空间或团队协作功能的企业用户，我们提供多种付费套餐选择。具体价格与权益对比，请访问官网的「定价」页面或咨询销售团队。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">如何重置我的 avbObO 账号密码？<span class="arrow">+</span></div>
+                    <div class="faq-answer">在登录页面点击「忘记密码」，输入注册邮箱后，系统会发送一封包含重置链接的邮件。点击链接按照提示操作即可完成密码重置。如果未收到邮件，请检查垃圾邮件文件夹或联系支持。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">avbObO 支持哪些平台与浏览器？<span class="arrow">+</span></div>
+                    <div class="faq-answer">avbObO 提供 Windows、macOS 客户端以及功能完整的 Web 版本，推荐使用最新版 Chrome、Edge、Safari 或 Firefox 浏览器访问，以获得最佳性能与安全体验。移动端可通过浏览器访问或使用我们适配良好的移动界面。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">如何获取 avbObO 的技术支持？<span class="arrow">+</span></div>
+                    <div class="faq-answer">您可以通过官网右下角的在线客服窗口获得即时帮助，或者发送邮件至官方支持邮箱。对于企业版用户，我们还提供专属客户成功经理与优先工单通道，确保问题能够快速响应与解决。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">avbObO 是否会定期更新？<span class="arrow">+</span></div>
+                    <div class="faq-answer">是的，我们保持每月至少一次的功能迭代与安全更新。每次更新前，我们会通过站内信及官网公告提前通知用户，并详细说明新增功能与改进内容，让您始终使用最新、最稳定的版本。</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA 区块 -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <h2>准备好开始使用 avbObO 了吗？</h2>
+            <p>立即注册，开启高效、安全的工作方式。或联系我们的团队获取一对一演示。</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn-hero btn-hero-primary">免费注册</a>
+                <a href="#" class="btn-hero btn-hero-ghost">预约演示</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>avbObO</h3>
+                    <p>avbObO 官方站点。我们专注于通过技术创新提升个人与组织的生产力。本网站为 avbObO 相关信息与服务的唯一权威发布渠道。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>产品</h4>
+                    <ul>
+                        <li><a href="#features">功能特性</a></li>
+                        <li><a href="#guide">使用指南</a></li>
+                        <li><a href="#news">更新日志</a></li>
+                        <li><a href="#">定价方案</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>支持</h4>
+                    <ul>
+                        <li><a href="#faq">帮助中心</a></li>
+                        <li><a href="#">服务状态</a></li>
+                        <li><a href="#">联系客服</a></li>
+                        <li><a href="#">社区论坛</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系与法律</h4>
+                    <ul>
+                        <li>官方邮箱：support@avbobo.example</li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">服务条款</a></li>
+                        <li><a href="#">关于我们</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 avbObO 官方网站. 保留所有权利。本站为 avbObO 唯一官方站点。</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 简单交互 JS -->
+    <script>
+        // 移动端导航切换
+        const navToggle = document.getElementById('navToggle');
+        const mobileNav = document.getElementById('mobileNav');
+        navToggle.addEventListener('click', function() {
+            mobileNav.classList.toggle('open');
+        });
+
+        // FAQ 折叠
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(function(item) {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', function() {
+                // 关闭其他项
+                faqItems.forEach(function(other) {
+                    if (other !== item) {
+                        other.classList.remove('active');
+                    }
+                });
+                // 切换当前项
+                item.classList.toggle('active');
+            });
+        });
+
+        // 平滑滚动 (简单处理)
+        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+            anchor.addEventListener('click', function(e) {
+                // 排除空链接
+                if (this.getAttribute('href') === '#') return;
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetEl = document.querySelector(targetId);
+                if (targetEl) {
+                    targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+                // 关闭移动端菜单
+                if (mobileNav.classList.contains('open')) {
+                    mobileNav.classList.remove('open');
+                }
+            });
+        });
+    </script>
+</body>
+  </html>
