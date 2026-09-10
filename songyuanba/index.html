@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>松原吧-松原本地生活资讯与互动交流社区</title>
+    <meta name="description" content="松原吧是松原本地生活资讯与互动交流平台，汇聚松原新闻、百姓话题、便民信息、求职招聘、房产租售、同城活动等丰富内容，打造松原人自己的网上家园。">
+    <meta name="keywords" content="松原吧,松原,松原论坛,松原社区,松原新闻,松原招聘,松原房产,松原生活,吉林松原">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        ul {
+            list-style: none;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        .top-bar {
+            background-color: #1e3a5f;
+            color: #cbd5e0;
+            font-size: 13px;
+            padding: 6px 0;
+        }
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .top-bar a {
+            color: #cbd5e0;
+            margin-left: 16px;
+        }
+        .top-bar a:hover {
+            color: #fff;
+        }
+        .top-bar .welcome {
+            display: flex;
+            align-items: center;
+        }
+        .top-bar .date {
+            margin-right: 10px;
+        }
+        header {
+            background-color: #fff;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 18px 0;
+        }
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .logo {
+            font-size: 32px;
+            font-weight: 800;
+            color: #1e3a5f;
+            letter-spacing: 1px;
+        }
+        .logo span {
+            color: #e67e22;
+        }
+        .header-search {
+            display: flex;
+            align-items: center;
+            background: #f0f2f5;
+            border-radius: 30px;
+            padding: 5px 5px 5px 20px;
+            width: 360px;
+            max-width: 100%;
+            border: 1px solid transparent;
+            transition: border 0.2s;
+        }
+        .header-search:focus-within {
+            border-color: #1e3a5f;
+            background: #fff;
+        }
+        .header-search input {
+            border: none;
+            outline: none;
+            background: transparent;
+            flex: 1;
+            font-size: 15px;
+            color: #333;
+        }
+        .header-search button {
+            background-color: #1e3a5f;
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            padding: 8px 22px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.2s;
+            white-space: nowrap;
+        }
+        .header-search button:hover {
+            background-color: #e67e22;
+        }
+        .user-actions a {
+            background: #e67e22;
+            color: #fff;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-left: 10px;
+        }
+        .user-actions a.login {
+            background: transparent;
+            border: 1px solid #1e3a5f;
+            color: #1e3a5f;
+        }
+        .user-actions a.login:hover {
+            background: #1e3a5f;
+            color: #fff;
+        }
+        .user-actions a.reg:hover {
+            background: #d35400;
+        }
+        nav.main-nav {
+            background-color: #fff;
+            border-bottom: 2px solid #e2e8f0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+        .main-nav-list {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .main-nav-list li {
+            position: relative;
+        }
+        .main-nav-list > li > a {
+            display: block;
+            padding: 14px 20px;
+            font-size: 16px;
+            font-weight: 500;
+            color: #2d3748;
+            transition: color 0.2s;
+        }
+        .main-nav-list > li > a:hover,
+        .main-nav-list > li.active > a {
+            color: #e67e22;
+        }
+        .main-nav-list > li.has-sub:hover .sub-nav {
+            display: block;
+        }
+        .sub-nav {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #fff;
+            min-width: 180px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border-radius: 0 0 6px 6px;
+            z-index: 100;
+        }
+        .sub-nav a {
+            display: block;
+            padding: 10px 20px;
+            font-size: 14px;
+            color: #4a5568;
+            border-bottom: 1px solid #f7fafc;
+        }
+        .sub-nav a:hover {
+            background: #f7fafc;
+            color: #1e3a5f;
+        }
+        .hero {
+            background: linear-gradient(135deg, #f0f4f8 0%, #ffffff 50%, #e6ecf2 100%);
+            padding: 40px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        .hero-text h1 {
+            font-size: 36px;
+            color: #1e3a5f;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+        .hero-text h1 span {
+            color: #e67e22;
+        }
+        .hero-text p {
+            font-size: 16px;
+            color: #4a5568;
+            margin-bottom: 25px;
+            max-width: 540px;
+        }
+        .hero-actions a {
+            display: inline-block;
+            background: #1e3a5f;
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-size: 15px;
+            font-weight: 500;
+            margin-right: 12px;
+            transition: all 0.2s;
+        }
+        .hero-actions a.secondary {
+            background: #fff;
+            color: #1e3a5f;
+            border: 2px solid #1e3a5f;
+        }
+        .hero-actions a:hover {
+            background: #e67e22;
+            border-color: #e67e22;
+            color: #fff;
+        }
+        .hero-actions a.secondary:hover {
+            background: #e67e22;
+            border-color: #e67e22;
+            color: #fff;
+        }
+        .hero-stats {
+            display: flex;
+            gap: 30px;
+            margin-top: 25px;
+        }
+        .hero-stats .stat {
+            text-align: center;
+        }
+        .hero-stats .num {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1e3a5f;
+        }
+        .hero-stats .label {
+            font-size: 13px;
+            color: #718096;
+        }
+        .hero-visual {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+            padding: 30px;
+            border: 1px solid #edf2f7;
+        }
+        .hero-visual .hot-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1e3a5f;
+            margin-bottom: 18px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #f0f2f5;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .hot-list-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px dashed #e2e8f0;
+        }
+        .hot-list-item:last-child {
+            border-bottom: none;
+        }
+        .hot-rank {
+            font-size: 18px;
+            font-weight: 800;
+            color: #cbd5e0;
+            width: 40px;
+            text-align: center;
+        }
+        .hot-rank.top3 {
+            color: #e67e22;
+        }
+        .hot-list-item .title {
+            flex: 1;
+            font-size: 15px;
+            color: #2d3748;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding-right: 10px;
+        }
+        .hot-list-item .title:hover {
+            color: #e67e22;
+        }
+        .hot-tag {
+            font-size: 12px;
+            color: #fff;
+            background: #e67e22;
+            border-radius: 4px;
+            padding: 2px 6px;
+        }
+        .main-content {
+            padding: 30px 0;
+        }
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+        .section-card {
+            background: #fff;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+            border: 1px solid #e8edf2;
+            overflow: hidden;
+        }
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 24px 12px;
+            border-bottom: 1px solid #f0f2f5;
+        }
+        .section-header h2 {
+            font-size: 20px;
+            color: #1e3a5f;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .section-header h2 i {
+            font-style: normal;
+            width: 4px;
+            height: 20px;
+            background: #e67e22;
+            border-radius: 2px;
+            display: inline-block;
+        }
+        .section-header .more {
+            font-size: 14px;
+            color: #718096;
+            transition: color 0.2s;
+        }
+        .section-header .more:hover {
+            color: #e67e22;
+        }
+        .section-body {
+            padding: 10px 24px 20px;
+        }
+        .topic-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 14px 0;
+            border-bottom: 1px solid #f7fafc;
+        }
+        .topic-item:last-child {
+            border-bottom: none;
+        }
+        .topic-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #edf2f7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            margin-right: 14px;
+            color: #1e3a5f;
+            flex-shrink: 0;
+        }
+        .topic-content {
+            flex: 1;
+            min-width: 0;
+        }
+        .topic-title {
+            font-size: 16px;
+            font-weight: 500;
+            color: #2d3748;
+            margin-bottom: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .topic-title:hover {
+            color: #e67e22;
+        }
+        .topic-meta {
+            font-size: 13px;
+            color: #a0aec0;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .topic-meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .topic-meta .author {
+            color: #4a5568;
+        }
+        .topic-meta .tag {
+            background: #edf2f7;
+            color: #4a5568;
+            padding: 1px 8px;
+            border-radius: 10px;
+            font-size: 12px;
+        }
+        .sidebar {
+            min-width: 0;
+        }
+        .side-card {
+            background: #fff;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+            border: 1px solid #e8edf2;
+            overflow: hidden;
+        }
+        .side-header {
+            padding: 16px 20px 10px;
+            border-bottom: 1px solid #f0f2f5;
+        }
+        .side-header h3 {
+            font-size: 17px;
+            color: #1e3a5f;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .side-header h3 i {
+            font-style: normal;
+            width: 4px;
+            height: 18px;
+            background: #e67e22;
+            border-radius: 2px;
+            display: inline-block;
+        }
+        .side-body {
+            padding: 12px 20px 16px;
+        }
+        .side-list li {
+            padding: 8px 0;
+            font-size: 14px;
+            color: #4a5568;
+            border-bottom: 1px dashed #edf2f7;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .side-list li:last-child {
+            border-bottom: none;
+        }
+        .side-list li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: #e67e22;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .side-list li:hover {
+            color: #e67e22;
+        }
+        .side-list li span {
+            color: #a0aec0;
+            margin-left: auto;
+            font-size: 12px;
+        }
+        .side-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            padding: 10px 0;
+        }
+        .side-stat {
+            text-align: center;
+            padding: 12px 0;
+            background: #f7fafc;
+            border-radius: 8px;
+        }
+        .side-stat .num {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1e3a5f;
+        }
+        .side-stat .label {
+            font-size: 12px;
+            color: #718096;
+        }
+        .quick-publish {
+            background: linear-gradient(135deg, #1e3a5f, #2a4a73);
+            color: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .quick-publish h3 {
+            font-size: 20px;
+            margin-bottom: 6px;
+        }
+        .quick-publish p {
+            font-size: 14px;
+            color: #cbd5e0;
+            margin-bottom: 16px;
+        }
+        .quick-publish a {
+            display: inline-block;
+            background: #e67e22;
+            color: #fff;
+            padding: 10px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        .quick-publish a:hover {
+            background: #d35400;
+        }
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            padding: 20px;
+        }
+        .category-item {
+            background: #f7fafc;
+            border-radius: 10px;
+            padding: 20px 10px;
+            text-align: center;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+        .category-item:hover {
+            background: #fff;
+            border-color: #e2e8f0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            transform: translateY(-2px);
+        }
+        .category-item .icon {
+            font-size: 36px;
+            margin-bottom: 8px;
+        }
+        .category-item .name {
+            font-size: 15px;
+            font-weight: 600;
+            color: #2d3748;
+        }
+        .category-item .desc {
+            font-size: 12px;
+            color: #a0aec0;
+            margin-top: 4px;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 10px 0;
+        }
+        .info-card {
+            background: #f7fafc;
+            border-radius: 10px;
+            padding: 18px;
+            border-left: 4px solid #1e3a5f;
+        }
+        .info-card h4 {
+            font-size: 16px;
+            color: #1e3a5f;
+            margin-bottom: 8px;
+        }
+        .info-card p {
+            font-size: 14px;
+            color: #4a5568;
+        }
+        .info-card a {
+            display: inline-block;
+            margin-top: 8px;
+            font-size: 14px;
+            color: #e67e22;
+            font-weight: 500;
+        }
+        .banner-tip {
+            background: #fff7ed;
+            border: 1px solid #fed7aa;
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 30px 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .banner-tip .icon {
+            font-size: 32px;
+        }
+        .banner-tip .text {
+            flex: 1;
+            min-width: 200px;
+        }
+        .banner-tip .text strong {
+            color: #1e3a5f;
+            font-size: 16px;
+        }
+        .banner-tip .text p {
+            font-size: 14px;
+            color: #4a5568;
+        }
+        .faq-section {
+            padding: 30px 0 40px;
+        }
+        .faq-item {
+            background: #fff;
+            border-radius: 8px;
+            padding: 16px 24px;
+            margin-bottom: 12px;
+            border: 1px solid #e8edf2;
+        }
+        .faq-item h3 {
+            font-size: 16px;
+            color: #1e3a5f;
+            margin-bottom: 6px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-item p {
+            font-size: 14px;
+            color: #4a5568;
+        }
+        .faq-item .toggle {
+            color: #e67e22;
+            font-size: 20px;
+            font-weight: 700;
+        }
+        .footer {
+            background: #1e3a5f;
+            color: #cbd5e0;
+            padding: 40px 0 20px;
+            margin-top: 40px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #2d4a6f;
+        }
+        .footer-col h4 {
+            color: #fff;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+        .footer-col ul li {
+            padding: 4px 0;
+            font-size: 14px;
+        }
+        .footer-col ul li a:hover {
+            color: #fff;
+        }
+        .footer-bottom {
+            padding-top: 20px;
+            text-align: center;
+            font-size: 13px;
+            color: #718096;
+        }
+        .footer-bottom a {
+            color: #cbd5e0;
+        }
+        .footer-bottom a:hover {
+            color: #fff;
+        }
+        .footer .friend-links {
+            margin-top: 10px;
+        }
+        .footer .friend-links a {
+            margin: 0 8px;
+        }
+        @media (max-width: 992px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .header-search {
+                width: 100%;
+            }
+            .user-actions {
+                display: none;
+            }
+            .main-nav-list > li > a {
+                padding: 12px 12px;
+                font-size: 14px;
+            }
+            .hero-text h1 {
+                font-size: 28px;
+            }
+            .section-body {
+                padding: 10px 15px 15px;
+            }
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-stats {
+                gap: 15px;
+                flex-wrap: wrap;
+            }
+            .category-item {
+                padding: 15px 5px;
+            }
+            .topic-avatar {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+        @media (max-width: 480px) {
+            .main-nav-list {
+                justify-content: space-between;
+            }
+            .main-nav-list > li > a {
+                padding: 10px 8px;
+                font-size: 13px;
+            }
+            .hero-text h1 {
+                font-size: 24px;
+            }
+            .hero-actions a {
+                padding: 10px 20px;
+                font-size: 14px;
+                margin-right: 6px;
+            }
+            .section-header {
+                padding: 14px 15px 10px;
+            }
+            .section-header h2 {
+                font-size: 18px;
+            }
+            .topic-meta {
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="container">
+            <div class="welcome">
+                <span class="date" id="currentDate"></span>
+                <span>欢迎来到松原吧！</span>
+            </div>
+            <div>
+                <a href="#">登录</a>
+                <a href="#">注册</a>
+                <a href="#">手机版</a>
+                <a href="#">帮助中心</a>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container header-inner">
+            <div class="logo">松原<span>吧</span></div>
+            <div class="header-search">
+                <input type="text" placeholder="搜索帖子、话题、用户...">
+                <button>搜索</button>
+            </div>
+            <div class="user-actions">
+                <a href="#" class="login">登录</a>
+                <a href="#" class="reg">免费注册</a>
+            </div>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <ul class="main-nav-list">
+                <li class="active"><a href="#">首页</a></li>
+                <li><a href="#">松原杂谈</a></li>
+                <li class="has-sub">
+                    <a href="#">生活服务</a>
+                    <div class="sub-nav">
+                        <a href="#">求职招聘</a>
+                        <a href="#">房产租售</a>
+                        <a href="#">二手交易</a>
+                        <a href="#">本地商家</a>
+                        <a href="#">家政服务</a>
+                    </div>
+                </li>
+                <li><a href="#">百姓话题</a></li>
+                <li class="has-sub">
+                    <a href="#">兴趣圈子</a>
+                    <div class="sub-nav">
+                        <a href="#">美食探店</a>
+                        <a href="#">摄影交流</a>
+                        <a href="#">户外运动</a>
+                        <a href="#">亲子乐园</a>
+                        <a href="#">宠物之家</a>
+                    </div>
+                </li>
+                <li><a href="#">同城活动</a></li>
+                <li><a href="#">跳蚤市场</a></li>
+                <li><a href="#">松原头条</a></li>
+                <li style="margin-left:auto;"><a href="#">消息</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <h1>松原人都在用的<span>本地交流平台</span></h1>
+                <p>在这里，您可以获取松原最新资讯，参与本地话题讨论，发布求职招聘、房产租售、二手交易等生活信息，结识志同道合的朋友，共同打造温暖的松原网上家园。</p>
+                <div class="hero-actions">
+                    <a href="#">立即发帖</a>
+                    <a href="#" class="secondary">浏览热帖</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="num">128,500+</div>
+                        <div class="label">注册会员</div>
+                    </div>
+                    <div class="stat">
+                        <div class="num">2,860+</div>
+                        <div class="label">今日帖子</div>
+                    </div>
+                    <div class="stat">
+                        <div class="num">45+</div>
+                        <div class="label">兴趣版块</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hot-title">
+                    <span>🔥 松原吧热议话题</span>
+                </div>
+                <div class="hot-list-item">
+                    <span class="hot-rank top3">1</span>
+                    <span class="title">松原江边公园的夜景也太美了吧</span>
+                    <span class="hot-tag">热</span>
+                </div>
+                <div class="hot-list-item">
+                    <span class="hot-rank top3">2</span>
+                    <span class="title">求推荐松原好吃的烧烤店，老铁们</span>
+                    <span class="hot-tag">热</span>
+                </div>
+                <div class="hot-list-item">
+                    <span class="hot-rank top3">3</span>
+                    <span class="title">松原站前广场改造最新进展来了</span>
+                    <span class="hot-tag">新</span>
+                </div>
+                <div class="hot-list-item">
+                    <span class="hot-rank">4</span>
+                    <span class="title">有没有一起夜跑查干湖的朋友？</span>
+                </div>
+                <div class="hot-list-item">
+                    <span class="hot-rank">5</span>
+                    <span class="title">松原市实验高中附近租房求推荐</span>
+                </div>
+                <div class="hot-list-item">
+                    <span class="hot-rank">6</span>
+                    <span class="title">今天江南的雾凇太绝了！</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="banner-tip">
+            <div class="icon">📢</div>
+            <div class="text">
+                <strong>松原吧新版上线公告</strong>
+                <p>全新界面、更快的浏览体验、手机端适配优化完成。欢迎大家提出宝贵建议，共建松原人自己的网上家园。</p>
+            </div>
+        </div>
+    </div>
+
+    <main class="main-content">
+        <div class="container content-grid">
+            <div>
+                <section class="section-card">
+                    <div class="section-header">
+                        <h2><i></i>最新热帖</h2>
+                        <a href="#" class="more">更多 ></a>
+                    </div>
+                    <div class="section-body">
+                        <div class="topic-item">
+                            <div class="topic-avatar">🎉</div>
+                            <div class="topic-content">
+                                <div class="topic-title">松原江北新建的市民文化中心，内部图曝光！</div>
+                                <div class="topic-meta">
+                                    <span class="author">@松原小灵通</span>
+                                    <span>发布于 10分钟前</span>
+                                    <span>💬 56</span>
+                                    <span class="tag">本地资讯</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="topic-item">
+                            <div class="topic-avatar">🍜</div>
+                            <div class="topic-content">
+                                <div class="topic-title">盘点松原那些排队也要吃的老字号美食，你吃过几家？</div>
+                                <div class="topic-meta">
+                                    <span class="author">@干饭魂</span>
+                                    <span>发布于 1小时前</span>
+                                    <span>💬 120</span>
+                                    <span class="tag">美食探店</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="topic-item">
+                            <div class="topic-avatar">🏠</div>
+                            <div class="topic-content">
+                                <div class="topic-title">松原江南某小区物业费调整，大家怎么看？</div>
+                                <div class="topic-meta">
+                                    <span class="author">@江南业主</span>
+                                    <span>发布于 2小时前</span>
+                                    <span>💬 89</span>
+                                    <span class="tag">百姓话题</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="topic-item">
+                            <div class="topic-avatar">⚽</div>
+                            <div class="topic-content">
+                                <div class="topic-title">周末松原体育场有足球友谊赛，约起来！</div>
+                                <div class="topic-meta">
+                                    <span class="author">@足球小子</span>
+                                    <span>发布于 3小时前</span>
+                                    <span>💬 21</span>
+                                    <span class="tag">同城活动</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="topic-item">
+                            <div class="topic-avatar">💼</div>
+                            <div class="topic-content">
+                                <div class="topic-title">松原某大型企业招聘，待遇不错，有一起的吗？</div>
+                                <div class="topic-meta">
+                                    <span class="author">@职场达人</span>
+                                    <span>发布于 4小时前</span>
+                                    <span>💬 45</span>
+                                    <span class="tag">求职招聘</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section-card">
+                    <div class="section-header">
+                        <h2><i></i>生活服务信息</h2>
+                        <a href="#" class="more">发布信息 ></a>
+                    </div>
+                    <div class="section-body">
+                        <div class="info-grid">
+                            <div class="info-card">
+                                <h4>🏠 房屋出租</h4>
+                                <p>江南金钻商圈两室一厅精装，拎包入住，月租1500元，近学校医院，采光好。联系电话：138****5678</p>
+                                <a href="#">查看详情</a>
+                            </div>
+                            <div class="info-card">
+                                <h4>🚗 二手出售</h4>
+                                <p>2019款大众迈腾，个人一手车，行驶6万公里，车况良好无事故，价格可议，诚心出。</p>
+                                <a href="#">查看详情</a>
+                            </div>
+                            <div class="info-card">
+                                <h4>💼 求职简历</h4>
+                                <p>本人有多年销售经验，熟悉松原本地市场，想找一份有挑战的销售或管理岗位，随时到岗。</p>
+                                <a href="#">查看详情</a>
+                            </div>
+                            <div class="info-card">
+                                <h4>🔧 便民维修</h4>
+                                <p>专业水电维修、管道疏通、家电清洗，十年老师傅，价格公道，服务松原全城，随叫随到。</p>
+                                <a href="#">查看详情</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section-card">
+                    <div class="section-header">
+                        <h2><i></i>松原头条快讯</h2>
+                        <a href="#" class="more">更多快讯 ></a>
+                    </div>
+                    <div class="section-body">
+                        <div class="topic-item">
+                            <div class="topic-avatar">📰</div>
+                            <div class="topic-content">
+                                <div class="topic-title">松原市开展冬季市容环境综合整治行动</div>
+                                <div class="topic-meta">
+                                    <span class="author">@松原发布</span>
+                                    <span>发布于 1小时前</span>
+                                    <span>💬 32</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="topic-item">
+                            <div class="topic-avatar">🏗️</div>
+                            <div class="topic-content">
+                                <div class="topic-title">查干湖冬捕节筹备工作有序推进，今年亮点抢先看</div>
+                                <div class="topic-meta">
+                                    <span class="author">@文旅松原</span>
+                                    <span>发布于 3小时前</span>
+                                    <span>💬 78</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="topic-item">
+                            <div class="topic-avatar">🚌</div>
+                            <div class="topic-content">
+                                <div class="topic-title">松原公交新线路开通，直通高铁站，市民出行更便捷</div>
+                                <div class="topic-meta">
+                                    <span class="author">@交通在线</span>
+                                    <span>发布于 5小时前</span>
+                                    <span>💬 44</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <aside class="sidebar">
+                <div class="quick-publish">
+                    <h3>✍ 发布新帖</h3>
+                    <p>分享你的见闻、问题或闲置，让更多松原人看到</p>
+                    <a href="#">立即发帖</a>
+                </div>
+
+                <div class="side-card">
+                    <div class="side-header">
+                        <h3><i></i>社区数据</h3>
+                    </div>
+                    <div class="side-body">
+                        <div class="side-stats">
+                            <div class="side-stat">
+                                <div class="num">128.5k</div>
+                                <div class="label">会员总数</div>
+                            </div>
+                            <div class="side-stat">
+                                <div class="num">2.8k</div>
+                                <div class="label">今日发帖</div>
+                            </div>
+                            <div class="side-stat">
+                                <div class="num">9.6k</div>
+                                <div class="label">今日回复</div>
+                            </div>
+                            <div class="side-stat">
+                                <div class="num">45</div>
+                                <div class="label">主题版块</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="side-card">
+                    <div class="side-header">
+                        <h3><i></i>热门版块</h3>
+                    </div>
+                    <div class="side-body">
+                        <ul class="side-list">
+                            <li>松原杂谈 <span>2.1k帖</span></li>
+                            <li>求职招聘 <span>856帖</span></li>
+                            <li>房产租售 <span>742帖</span></li>
+                            <li>美食探店 <span>531帖</span></li>
+                            <li>二手交易 <span>1.2k帖</span></li>
+                            <li>同城活动 <span>289帖</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="side-card">
+                    <div class="side-header">
+                        <h3><i></i>活跃会员</h3>
+                    </div>
+                    <div class="side-body">
+                        <ul class="side-list">
+                            <li>@松原老张 <span>LV.8</span></li>
+                            <li>@查干湖渔夫 <span>LV.6</span></li>
+                            <li>@江北小飞 <span>LV.5</span></li>
+                            <li>@江南一枝花 <span>LV.7</span></li>
+                            <li>@松原通 <span>LV.9</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <div class="container">
+        <section class="section-card">
+            <div class="section-header">
+                <h2><i></i>全城分类导航</h2>
+            </div>
+            <div class="category-grid">
+                <a href="#" class="category-item">
+                    <div class="icon">🗣️</div>
+                    <div class="name">松原杂谈</div>
+                    <div class="desc">畅聊本地大小事</div>
+                </a>
+                <a href="#" class="category-item">
+                    <div class="icon">💼</div>
+                    <div class="name">求职招聘</div>
+                    <div class="desc">找工作招人才</div>
+                </a>
+                <a href="#" class="category-item">
+                    <div class="icon">🏠</div>
+                    <div class="name">房产租售</div>
+                    <div class="desc">买房租房二手房</div>
+                </a>
+                <a href="#" class="category-item">
+                    <div class="icon">🛒</div>
+                    <div class="name">二手闲置</div>
+                    <div class="desc">低价好物转让</div>
+                </a>
+                <a href="#" class="category-item">
+                    <div class="icon">🍜</div>
+                    <div class="name">美食探店</div>
+                    <div class="desc">发现松原好味道</div>
+                </a>
+                <a href="#" class="category-item">
+                    <div class="icon">📷</div>
+                    <div class="name">摄影美图</div>
+                    <div class="desc">记录松原之美</div>
+                </a>
+                <a href="#" class="category-item">
+                    <div class="icon">🚗</div>
+                    <div class="name">车友之家</div>
+                    <div class="desc">选车用车交流</div>
+                </a>
+                <a href="#" class="category-item">
+                    <div class="icon">🏀</div>
+                    <div class="name">运动健身</div>
+                    <div class="desc">球友跑友聚集地</div>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <div class="container faq-section">
+        <h2 style="font-size: 22px; color: #1e3a5f; margin-bottom: 20px; padding-left: 10px; border-left: 4px solid #e67e22;">松原吧常见问题</h2>
+        <div class="faq-item">
+            <h3>如何注册松原吧账号？ <span class="toggle">+</span></h3>
+            <p>点击页面右上角"免费注册"按钮，使用手机号或邮箱即可完成注册。注册后即可发帖、回复、参与投票等。</p>
+        </div>
+        <div class="faq-item">
+            <h3>如何发布分类信息？ <span class="toggle">+</span></h3>
+            <p>登录后点击"立即发帖"按钮，选择对应的分类版块（如房产租售、求职招聘等），按提示填写内容并提交即可。请确保信息真实有效。</p>
+        </div>
+        <div class="faq-item">
+            <h3>发帖有什么规则需要遵守？ <span class="toggle">+</span></h3>
+            <p>请遵守网络文明公约，不发布违法、虚假、广告或人身攻击类信息。严禁刷屏、灌水。违规内容将被删除，严重者封禁账号。</p>
+        </div>
+        <div class="faq-item">
+            <h3>信息发布多久能审核通过？ <span class="toggle">+</span></h3>
+            <p>正常情况下，帖子提交后系统自动审核，几分钟内即可显示。如遇敏感词或高峰期，可能需要人工复核，请耐心等待。</p>
+        </div>
+        <div class="faq-item">
+            <h3>如何联系松原吧管理员？ <span class="toggle">+</span></h3>
+            <p>您可以通过页面底部的"联系我们"入口发送站内信，或访问帮助中心提交工单。我们会在1-2个工作日内回复。</p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于松原吧</h4>
+                    <ul>
+                        <li><a href="#">平台介绍</a></li>
+                        <li><a href="#">发展历程</a></li>
+                        <li><a href="#">管理团队</a></li>
+                        <li><a href="#">加入我们</a></li>
+                        <li><a href="#">联系方式</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>帮助中心</h4>
+                    <ul>
+                        <li><a href="#">新手指南</a></li>
+                        <li><a href="#">发帖规范</a></li>
+                        <li><a href="#">账号安全</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">用户协议</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>热门版块</h4>
+                    <ul>
+                        <li><a href="#">松原杂谈</a></li>
+                        <li><a href="#">求职招聘</a></li>
+                        <li><a href="#">房产租售</a></li>
+                        <li><a href="#">二手市场</a></li>
+                        <li><a href="#">同城活动</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>友情链接</h4>
+                    <ul>
+                        <li><a href="#">松原市人民政府</a></li>
+                        <li><a href="#">松原新闻网</a></li>
+                        <li><a href="#">查干湖旅游网</a></li>
+                        <li><a href="#">吉林信息港</a></li>
+                        <li><a href="#">本地生活圈</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 松原吧 www.songyuan8.com 版权所有 吉ICP备2024XXXXXX号</p>
+                <p>松原吧是松原本地网民自发建设的交流社区，所有言论均不代表本站立场。</p>
+                <div class="friend-links">
+                    <a href="#">网站地图</a> |
+                    <a href="#">RSS订阅</a> |
+                    <a href="#">移动版</a> |
+                    <a href="#">意见反馈</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <script>
+        // 设置当前日期
+        var dateEl = document.getElementById('currentDate');
+        if (dateEl) {
+            var now = new Date();
+            var year = now.getFullYear();
+            var month = ('0' + (now.getMonth() + 1)).slice(-2);
+            var day = ('0' + now.getDate()).slice(-2);
+            var weekDays = ['日', '一', '二', '三', '四', '五', '六'];
+            var week = '星期' + weekDays[now.getDay()];
+            dateEl.textContent = year + '年' + month + '月' + day + '日 ' + week;
+        }
+
+        // FAQ折叠功能
+        var faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(function(item) {
+            var h3 = item.querySelector('h3');
+            var p = item.querySelector('p');
+            var toggle = item.querySelector('.toggle');
+            if (p) p.style.display = 'none';
+            if (h3) {
+                h3.addEventListener('click', function() {
+                    if (p) {
+                        if (p.style.display === 'none') {
+                            p.style.display = 'block';
+                            if (toggle) toggle.textContent = '-';
+                        } else {
+                            p.style.display = 'none';
+                            if (toggle) toggle.textContent = '+';
+                        }
+                    }
+                });
+            }
+        });
+
+        // 简单搜索框提示
+        var searchInput = document.querySelector('.header-search input');
+        if (searchInput) {
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    alert('搜索功能即将上线，敬请期待！您可以在社区内浏览相关内容。');
+                }
+            });
+        }
+
+        // 主导航点击效果
+        var navLinks = document.querySelectorAll('.main-nav-list > li > a');
+        navLinks.forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                var parent = link.parentElement;
+                var allItems = document.querySelectorAll('.main-nav-list > li');
+                allItems.forEach(function(item) {
+                    item.classList.remove('active');
+                });
+                if (parent) parent.classList.add('active');
+            });
+        });
+    </script>
+</body>
+                          </html>
